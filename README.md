@@ -10,7 +10,7 @@ It enables automated testing using behavior-driven development (BDD) principles.
 Make sure you have the following installed:
 
 - Java Development Kit (JDK 17 is used)
-- Gradle
+- Gradle (version 7.5 is used)
 - WebDriver compatible with the browser(s) you intend to test
 
 ## Setup
@@ -35,7 +35,7 @@ Make sure you have the following installed:
 ## Running Tests
 
 1. [ ] **IMPORTANT: Run this command on the terminal first: `chmod +x ./gradlew`**
-2. [ ] **IMPORTANT: Execute tests using Gradle command: `.\gradlew runInitialTests`**
+2. [ ] **IMPORTANT: Execute tests using Gradle command on the terminal: `./gradlew runInitialTests --info`**
 3. [ ] `DriverConfig` class **automatically** detects OS and initiates the driver
 4. [ ] Tests are executed in headless mode
 

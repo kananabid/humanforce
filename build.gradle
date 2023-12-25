@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+}
+configurations {
+    cucumberReportsMerger
+}
+group = 'humanforce'
+version = '0.0.1-SNAPSHOT'
+java.sourceCompatibility = JavaVersion.VERSION_11
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation 'net.masterthought:cucumber-reporting:5.7.5'
+    testImplementation 'io.cucumber:cucumber-java:7.4.1'
+    testImplementation 'io.cucumber:cucumber-junit:7.4.1'
+    testImplementation 'io.cucumber:cucumber-core:7.4.1'
+    testImplementation 'io.cucumber:cucumber-testng:7.4.1'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.1'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.8.1'
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.16.1'
+    implementation 'tech.grasshopper:extentreports-cucumber6-adapter:2.18.0'
+}
+
+tasks.withType(JavaCompile) {
+    options.release = 11
+}
+repositories {
+    jcenter()
+}
+
+task runInitialTests(type: Test) {
+    description = 'Run initial tests using TestRunner class'
+
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    include '**/humanforce/test/TestRunner.class'
+}
+
+task runFailedTests(type: Test) {
+    description = 'Rerun failed tests using TestRunnerForFailed class'
+
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    onlyIf {
+        def failedTestsFile = file('target/failedrerun.txt')
+        return failedTestsFile.exists() && failedTestsFile.length() > 0
+    }
+
+    include '**/humanforce/test/TestRunnerForFailed.class'
+}
+runInitialTests.finalizedBy(runFailedTests)

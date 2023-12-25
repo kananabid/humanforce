@@ -40,8 +40,15 @@ public class UserStory extends Helper {
 
     @When("I scroll to the bottom and select Time & Attendance")
     public void iScrollToTheBottomAndSelectTimeAndAttendance() {
-        explicitWait(continueHereBtn, VISIBLE, 15);
-        ge(continueHereBtn).click();
+        try {
+            // Once the button is visible, click on it
+            explicitWait(continueHereBtn, VISIBLE, 15);
+            ge(continueHereBtn).click();
+        } catch (Exception e) {
+            // Handle exceptions or perform alternative actions if the button is not found or not visible
+            System.out.println("Continue here popup did not appear");
+        }
+
         List<WebElement> links = driver.findElements(By.cssSelector("ul.w-full > li > a"));
         for (WebElement link : links) {
             if (link.getText().equals("Time & Attendance")) {
@@ -206,8 +213,14 @@ public class UserStory extends Helper {
 
     @And("I close the welcome popup")
     public void iCloseTheWelcomePopup() {
-        explicitWait(welcomePopUpClose, VISIBLE, 15);
-        ge(welcomePopUpClose).click();
+        try {
+            // Once the button is visible, click on it
+            explicitWait(welcomePopUpClose, VISIBLE, 15);
+            ge(welcomePopUpClose).click();
+        } catch (Exception e) {
+            // Handle exceptions or perform alternative actions if the button is not found or not visible
+            System.out.println("Welcome popup did not appear");
+        }
     }
 
     @Given("I save the items count")

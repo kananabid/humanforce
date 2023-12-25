@@ -66,6 +66,7 @@ public class UserStory extends Helper {
         scrollToElement(driver, ge(helpfulResources));
         explicitWait(helpfulResources, VISIBLE, 15);
         Assert.assertTrue(ge(helpfulResources).isDisplayed());
+
     }
 
     @Then("I select 7 benefits of workforce analytics for business")

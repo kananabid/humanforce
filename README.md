@@ -24,7 +24,7 @@ Make sure you have the following installed:
 - src/
     - main/
         - java/                          
-        - resources (chromedrivers for Mac & Win)
+        - resources
     - test/
         - java/                          
         - humanforce.test (Test files and step definitions)
@@ -34,9 +34,10 @@ Make sure you have the following installed:
 
 ## Running Tests
 
-1. [ ] **IMPORTANT: Execute tests using Gradle command: `.\gradlew runInitialTests`**
-2. [ ] `DriverConfig` class **automatically** detects OS (Win or Mac) and initiates the driver
-3. [ ] Tests are executed in headless mode
+1. [ ] **IMPORTANT: Run this command on the terminal first: `chmod +x ./gradlew`**
+2. [ ] **IMPORTANT: Execute tests using Gradle command: `.\gradlew runInitialTests`**
+3. [ ] `DriverConfig` class **automatically** detects OS and initiates the driver
+4. [ ] Tests are executed in headless mode
 
 ## Reporting
 
@@ -65,6 +66,30 @@ Step definitions corresponding to these scenarios are written in Java located in
 
 ## Notes
 
-1. [ ] Comments are added to `Helper` class in order to explain the base methods used
-2. [ ] Sleeps are added in between some steps in order to avoid unnecessary failures
+Comments are added to `Helper` class in order to explain the base methods used
+Sleeps are added in between some steps in order to avoid unnecessary failures
 (Ideally, they should not be present 🌚)
+
+It's impossible to automate the User Story below as the userflow does not correspond to the scenario on the second step:
+1. [ ]    Prerequisite:
+2. [ ]    Download the provided CSV file
+3. [ ]    Update the EmployeeCode, FirstName, LastName, ShortName, Email columns
+4. [ ]    with your own EmployeeCode, Name and Email respectively
+5. [ ] 
+6. [ ] As an authenticated user <Admin> ADM01
+7. [ ] When I visit <Test instance>/IntegrationsCentral
+8. [ ] Then I click on the 'Add New' button
+9. [ ] Then I click on 'File Import'
+10. [ ] Then I enter a task name
+11. [ ] Then I select the Data type of 'Employee Basic' from the drop-down box
+12. [ ] Then I click 'Browse'
+13. [ ] Then I select and upload the provided CSV file
+14. [ ] Then I click 'Next' at the bottom of the page
+15. [ ] Then I click 'Next' at the bottom of the page(Field Mapping Page)
+16. [ ] Then I see the pop-up appears asking for one time import
+17. [ ] Then I click 'Import Only'
+18. [ ] Then I should see 'File import complete'
+19. [ ] Then I click 'Got it'
+20. [ ] 
+21. [ ] Then I navigate to <Test instance>/EmployeeManagement
+22. [ ] Verify there is an employee with my first name and last name

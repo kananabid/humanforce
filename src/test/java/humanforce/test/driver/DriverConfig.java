@@ -3,6 +3,7 @@ package humanforce.test.driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -56,15 +57,7 @@ public class DriverConfig {
         chromeOptions.addArguments("--ignore-ssl-errors=yes");
         chromeOptions.setCapability("acceptInsecureCerts", true);
 
-        String os = System.getProperty("os.name").toLowerCase();
-        String driverPath = "";
-
-        if (os.contains("win")) {
-            driverPath = "src/main/resources/win/chromedriver.exe";
-        } else if (os.contains("mac")) {
-            driverPath = "src/main/resources/mac/chromedriver";
-        }
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        WebDriverManager.chromedriver().setup();
         return new ChromeDriver(chromeOptions);
     }
 }

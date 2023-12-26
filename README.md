@@ -34,8 +34,8 @@ Make sure you have the following installed:
 
 ## Running Tests
 
-1. [ ] **IMPORTANT: Run this command on the terminal first: `chmod +x ./gradlew`**
-2. [ ] **IMPORTANT: Execute tests using Gradle command on the terminal: `./gradlew runInitialTests --info`**
+1. [ ] **IMPORTANT: Run this command on the IDEA terminal first: `chmod +x ./gradlew`**
+2. [ ] **IMPORTANT: Execute tests using Gradle command on the IDEA terminal: `./gradlew runInitialTests --info`**
 3. [ ] `DriverConfig` class **automatically** detects OS and initiates the driver
 4. [ ] Tests are executed in headless mode
 
